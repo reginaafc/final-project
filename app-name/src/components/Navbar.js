@@ -3,7 +3,6 @@ import "../assets/css/Navbar.css";
 import {LoginOutlined} from "@ant-design/icons";
 import {GiftOutlined} from "@ant-design/icons";
 
-
 function Navbar(props) {
   return (
     <ul className="header">

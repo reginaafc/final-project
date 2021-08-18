@@ -9,6 +9,8 @@ import Parallax from "../components/Parallax";
 import Footer from "../components/Footer";
 
 
+
+
 function Dashboard(props) {
   return (
     <Row>
