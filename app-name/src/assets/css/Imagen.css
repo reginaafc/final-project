@@ -1,0 +1,36 @@
+.slide{
+    height: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.d-block{
+    height: 520px;
+}
+
+.carousel-indicators{
+    z-index: 2;
+}
+
+@media only screen and (max-width: 800px) {
+    .d-block{
+        height: 360px;
+    }
+    .slide{
+        margin-bottom: 62px;
+        height: 22%;
+        margin-top: -3px;
+    }
+
+}
+
+@media only screen and (min-width: 1100px) {
+    .d-block{
+        height: 800px;
+    }
+    .slide{
+        margin-bottom: 320px;
+        height: 22%;
+        margin-top: -3px;
+    }
+
+  }
