@@ -19,7 +19,7 @@ function Info(props) {
             funding, tools, training, and support they need to serve their
             communities.
           </div>
-          <div class="row-8"><button className="buttooon">Donate</button></div>
+          <div class="row-8"><a href="/projects" className="buttooon">Donate</a></div>
         </div>
       </div>
     </section>

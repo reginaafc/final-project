@@ -33,20 +33,20 @@
   margin-top: 20px;
 }
 
-.button {
+.buttonn {
   font-size: 20px;
   border-radius: 100%;
-  color: black;
+  color: rgb(255, 255, 255);
   opacity: 0.5;
   margin: 8px;
 }
 
-.button:hover {
+.buttonn:hover {
   opacity: 1;
 }
 
 
-.button:focus,.button:active {
+.buttonn:focus,.buttonn:active {
   outline: none !important;
   box-shadow: none;
 }

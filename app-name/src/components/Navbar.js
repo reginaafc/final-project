@@ -3,6 +3,8 @@ import "../assets/css/Navbar.css";
 import {LoginOutlined} from "@ant-design/icons";
 import {GiftOutlined} from "@ant-design/icons";
 import {HomeOutlined} from "@ant-design/icons";
+import { Route} from "react-router-dom";
+
 
 
 
@@ -12,9 +14,9 @@ function Navbar(props) {
       <img className="img" src="./icon/logo512.png" />
       <h1 className="tituloHeader">Final-project</h1>
       <div>
-      <button className="button"><HomeOutlined/></button>
-      <button className="button"><GiftOutlined/></button>
-      <button className="button"><LoginOutlined /></button>
+      <a href='/' className="buttonn"><HomeOutlined/></a>
+      <a href='/projects' className="buttonn"><GiftOutlined/></a>
+      <a href='/login' className="buttonn"><LoginOutlined /></a>
       </div>
     </ul>
   );
