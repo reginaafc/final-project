@@ -3,15 +3,14 @@ import "antd/dist/antd.css";
 import { Col, Row } from "antd";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import SignupForm from "../components/SignupForm";
 
 function SignUp(props) {
   return (
     <Row>
       <Col xs={24}>
         <Navbar></Navbar>
-        <p>SignUp</p>
-
+        <SignupForm></SignupForm>
         <Footer></Footer>
       </Col>
     </Row>
