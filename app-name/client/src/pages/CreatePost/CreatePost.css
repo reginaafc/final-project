@@ -1,0 +1,66 @@
+.bgImage {
+  width: 100%;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  position: relative;
+  background-color: floralwhite;
+}
+
+.bgImageText {
+  position: absolute;
+  top: 15%;
+  left: 2.5%;
+  font-size: 50px;
+  font-weight: 700;
+  width: 50%;
+}
+
+.createPostBodyContainer {
+  padding: 0 60px;
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: floralwhite; */
+}
+
+.createPostFormTitle {
+  text-align: center;
+  font-size: 30px;
+  padding: 30px;
+  width: 100%;
+}
+
+.createPostFormContainer {
+  width: 50%;
+  background-color: lightpink;
+  padding: 20px;
+}
+
+.createPostUploadContainer {
+  width: 50%;
+  height: auto;
+  background-color: lightsalmon;
+  padding: 20px;
+}
+
+.createPostUploadTitle {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+  font-size: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: lightsteelblue;
+  border-radius: 10px 10px 0 0;
+}
+
+.createPostUploadTitle > * {
+  align-self: center;
+}
+
+.createPostUpload {
+  width: 100%;
+  height: 80%;
+}

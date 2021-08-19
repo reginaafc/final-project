@@ -1,0 +1,59 @@
+
+.postDetailBodyContainer{
+    background-color: #1E2343;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.postDetailBodyLhs{
+    width: 60%;
+    color: white;
+    padding-bottom: 50px;
+}
+
+.postDetailDescription{
+    padding: 200px 50px 0 150px;
+    font-size: 25px;
+
+}
+
+.postDetailBodyRhs{
+    width: 40%;
+    color: white;
+}
+
+.postDetailBodyRhs li{
+    list-style-type: none;
+}
+
+
+.miscellaneous{
+    font-size: 20px;
+    padding: 0px 40px 0 50px;
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .postDetailBodyLhs{
+        width: 100%;
+    }
+
+    .postDetailDescription{
+        padding: 200px 50px 0 50px;
+    }
+
+    .postDetailBodyRhs{
+        width: 100%;
+        
+    }
+
+    .miscellaneous{
+        padding: 0;
+        margin: 0;
+    }
+
+    .miscellaneous>ul{
+        padding: 0 50px 50px 50px;
+        margin: 0;
+    }
+  }
