@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@200&display=swap');
+
+.containerr {
+  background: rgb(181, 34, 34);
+  background: radial-gradient(
+    circle,
+    rgba(181, 34, 34, 1) 0%,
+    rgba(97, 0, 0, 1) 100%
+  );
+  height: 14%;
+  padding-top: 55px;
+  margin-top: 20px;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.col{
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.b{
+  font-family: 'Nunito', sans-serif;
+  font-size: 55px;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .b{
+    font-size: 35px;
+  }
+
+  .s{
+    font-size: 15px;
+  }
+
+  .containerr {
+    height: 10%;
+    padding-top: 30px;
+  }
+
+}
+
+@media only screen and (min-width: 1100px) {
+  .containerr {
+    padding-top: 55px;
+    height: 10%;
+  }
+}

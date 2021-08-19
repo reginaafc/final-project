@@ -1,0 +1,25 @@
+
+.miscellaneousTitle{
+    padding-top: 20px;
+    color: #61B1CA;
+}
+
+.miscellaneousContent{
+    color: white;
+}
+
+.miscellaneousContact{
+    padding: 20px 0 20px 0;
+    font-size: 17px;
+}
+
+.contactLink{
+    text-decoration: none;
+    color: #61B1CA;
+    transition: 0.5s;
+}
+
+.contactLink:hover{
+    color:white;
+    transition: 0.5s;
+}
