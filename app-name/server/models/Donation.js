@@ -9,7 +9,7 @@ const donationSchema = new Schema({
     //     unique: false,
     //     trim: true,
     // },
-    donation: {
+    amount: {
         type: Number,
         required: true,
         min: 0.99

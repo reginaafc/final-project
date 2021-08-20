@@ -39,13 +39,13 @@ function PostDetailProgressBar({ percentage }) {
         <div className="progressBarComment">
           Goal <FaHandHoldingHeart className="padding: 5" />
         </div>
-      </div>
-      <div className="outerBarContainer">
-        <div className="outerBar">
-          <InnerBar props={loadBar}>
-            <div className="barPercentagePointer"></div>
-            <div className="barTextPercentage">{percentage}%</div>
-          </InnerBar>
+        <div className="outerBarContainer">
+          <div className="outerBar">
+            <InnerBar props={loadBar}>
+              <div className="barPercentagePointer"></div>
+              <div className="barTextPercentage">{percentage}%</div>
+            </InnerBar>
+          </div>
         </div>
       </div>
     </div>

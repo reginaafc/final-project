@@ -13,8 +13,8 @@ type User {
 type Donation {
   _id: ID
   date: String
-  user: [User]
-  post: [Post]
+  user: User
+  amount: Int
 }
 
 type Post {
@@ -25,10 +25,36 @@ type Post {
   location: String
   image: String
   fundraise_destination: String
-  fundraise_account: Float
+  fundraise_account: String
   results: String
   expiration_date: String
-  user: [User]
+  user: User
+  donations: [Donation]
+}
+
+input PostInput{
+  project_name: String
+  description: String
+  publication_date: String
+  location: String
+  image: String
+  fundraise_destination: String
+  fundraise_account: String
+  results: String
+  expiration_date: String
+}
+
+input UserInput{
+  name: String
+  last_name: String
+  username: String
+  email: String
+}
+
+input DonationInput{
+  date: String
+  user: UserInput
+  amount: Int
 }
 
 type Auth {
@@ -37,14 +63,15 @@ type Auth {
 }
 
 type Query {
-  user: [User]
-  donation: [Donation]
-  post: [Post]
-  }
+  allPosts: [Post]
+  singlePost(postId:ID!): Post
+}
 
 type Mutation {
-    addUser(name: String!, last_name: String!, username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addUser(name: String!, last_name: String!, username: String!, email: String!, password: String!): Auth
+    addPost(postData: PostInput): Post
+    removePost(postId: ID!): Post
   }
 `
 
