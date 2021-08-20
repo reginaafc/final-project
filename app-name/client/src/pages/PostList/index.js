@@ -61,6 +61,7 @@ function PostList() {
           />
         ))}
       </div>
+      <a href="/createpost" className="fixed z-50 float-right w-16 h-16 pt-1 pl-3 ml-8 text-5xl text-white bg-red-800 rounded-full mt-96"> + </a>
     </div>
   );
 }

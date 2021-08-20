@@ -1,15 +1,19 @@
 import React from "react";
-import CreatePost from "../pages/CreatePost";
-import PostDetail from "../pages/PostDetail";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import AddPost from "../pages/AddPost";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 
+<<<<<<< HEAD
 import Posts from "../pages/Posts";
 import PostList from "../pages/PostList";
+=======
+import PostDetail from "../pages/PostDetail";
+import PostList from "../pages/PostList";
+import CreatePost from "../pages/CreatePost";
+>>>>>>> refs/remotes/origin/main
 
 import SignUp from "../pages/SignUp";
 import { ApolloProvider } from '@apollo/react-hooks';
