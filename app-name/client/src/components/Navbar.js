@@ -1,8 +1,10 @@
 import React from "react";
 import "../assets/css/Navbar.css";
 import { LoginOutlined } from "@ant-design/icons";
+import { LogoutOutlined } from "@ant-design/icons";
 import { GiftOutlined } from "@ant-design/icons";
 import { HomeOutlined } from "@ant-design/icons";
+import Auth from "../utils/auth";
 // import { Route } from "react-router-dom";
 
 import headerImg from "./img/logo512.png";
@@ -19,9 +21,15 @@ function Navbar(props) {
         <a href="/projects" className="buttonn">
           <GiftOutlined />
         </a>
-        <a href="/login" className="buttonn">
-          <LoginOutlined />
-        </a>
+        {Auth.loggedIn() ? (
+          <a href="/" className="buttonn" onClick={Auth.logout}>
+            <LogoutOutlined />
+          </a>
+        ) : (
+          <a href="/login" className="buttonn">
+            <LoginOutlined />
+          </a>
+        )}
       </div>
     </ul>
   );
