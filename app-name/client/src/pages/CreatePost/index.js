@@ -6,19 +6,72 @@ import "./CreatePost.css";
 
 import { Form, Input, Button, Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
-
 import "antd/dist/antd.css";
 
+import { useMutation } from "@apollo/client";
+import { ADD_POST } from "../../utils/mutations";
+
 export default function CreatePost() {
+  // Settin up the addpost mutation
+  const [addPost, { error }] = useMutation(ADD_POST);
+
+  // Setting up the dragbox (upload file)
   const { Dragger } = Upload;
   const { TextArea } = Input;
+
+  // Setting up the form
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState("vertical");
 
+  // Store form data
+  const [userFormData, setUserFormData] = useState({
+    project_name: "",
+    description: "",
+    fundraise_destination: "",
+    fundraise_account: "",
+    results: "",
+    location: "",
+  });
+
+  // Handle form change
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    console.log('name',name,'\nvalue',value);
+    // console.log('userformdata',userFormData);
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  // Handle form submit
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // const form = event.currentTarget;
+    // if (form.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
+    let today = new Date();
+    let ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(today);
+    let mo = new Intl.DateTimeFormat("en", { month: "short" }).format(today);
+    let da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(today);
+    console.log(`${da}-${mo}-${ye}`);
+
+    try {
+      console.log("Trying to create post");
+      // const { data } = await addPost({
+      //   variables: { ...userFormData },
+      // });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // Setting up form layout
   const onFormLayoutChange = ({ layout }) => {
     setFormLayout(layout);
   };
 
+  // Setting up form items layout
   const formItemLayout =
     formLayout === "horizontal"
       ? {
@@ -31,6 +84,7 @@ export default function CreatePost() {
         }
       : null;
 
+  // Setting up  the form button layout
   const buttonItemLayout =
     formLayout === "horizontal"
       ? {
@@ -40,7 +94,8 @@ export default function CreatePost() {
           },
         }
       : null;
-      
+
+  // Configuring dragbox
   const props = {
     name: "file",
     multiple: false,
@@ -82,33 +137,62 @@ export default function CreatePost() {
             }}
             onValuesChange={onFormLayoutChange}
             className="createPostForm"
+            onSubmit={handleFormSubmit}
           >
-            <Form.Item label="Author">
-              <Input placeholder="input placeholder" />
-            </Form.Item>
-            <Form.Item label="Email">
-              <Input placeholder="input placeholder" />
-            </Form.Item>
             <Form.Item label="Project Name">
-              <Input placeholder="input placeholder" />
+              <Input
+                placeholder="input placeholder"
+                onChange={handleInputChange}
+                value={userFormData.project_name}
+                name="project_name"
+              />
             </Form.Item>
             <Form.Item label="Description">
-              <TextArea rows={4} placeholder="input placeholder" />
+              <TextArea
+                rows={4}
+                placeholder="input placeholder"
+                onChange={handleInputChange}
+                value={userFormData.description}
+                name="description"
+              />
             </Form.Item>
-            <Form.Item label="Donation Destiny">
-              <Input placeholder="Doctors without borders" />
+            <Form.Item label="Fundraise Destination">
+              <Input
+                placeholder="Doctors without borders"
+                onChange={handleInputChange}
+                value={userFormData.fundraise_destination}
+                name="fundraise_destination"
+              />
             </Form.Item>
             <Form.Item label="Fundraise Account">
-              <Input placeholder="123456789" />
+              <Input
+                placeholder="123456789"
+                onChange={handleInputChange}
+                value={userFormData.fundraise_account}
+                name="fundraise_account"
+              />
             </Form.Item>
             <Form.Item label="Previous Results">
-              <Input placeholder="So far we have planted more than 1000 trees and saved..." />
+              <Input
+                placeholder="So far we have planted more than 1000 trees and saved..."
+                onChange={handleInputChange}
+                value={userFormData.results}
+                name="results"
+              />
             </Form.Item>
-            <Form.Item label="Donation Amount Being Asked">
+            <Form.Item label="Location">
+              <Input
+                placeholder="Zapopan, Jalisco, Mexico"
+                onChange={handleInputChange}
+                value={userFormData.location}
+                name="location"
+              />
+            </Form.Item>
+            {/* <Form.Item label="Donation Amount Being Asked">
               <Input placeholder="3000" />
-            </Form.Item>
+            </Form.Item> */}
             <Form.Item {...buttonItemLayout}>
-              <Button type="primary">Submit</Button>
+              <Button type='submit' variant='success'>Submit</Button>
             </Form.Item>
           </Form>
         </div>

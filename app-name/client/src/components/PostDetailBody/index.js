@@ -3,7 +3,7 @@ import React from "react";
 import "./PostDetailBody.css";
 import PostDetailBodyListItem from "../PostDetailBodyListItem";
 // Sets the layout for the header container and maps over headerSection to display all the elements in the header
-function postDetailBody({ description, results, ulProps, email }) {
+function postDetailBody({ description, results, ulProps }) {
   return (
     <div className="postDetailBodyContainer">
       <div className="postDetailBodyLhs">
@@ -19,11 +19,11 @@ function postDetailBody({ description, results, ulProps, email }) {
       <div className="postDetailBodyRhs">
         <div className="miscellaneous">
           <ul>
-            {ulProps.map((ulProp) => (
+            {ulProps.map((ulProp, index) => (
               <PostDetailBodyListItem
                 type={ulProp.type}
                 value={ulProp.value}
-                key={ulProp.key}
+                key={index}
               />
             ))}
           </ul>
