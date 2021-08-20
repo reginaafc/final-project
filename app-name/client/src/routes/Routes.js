@@ -9,7 +9,7 @@ import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 
 import Posts from "../pages/Posts";
-import Projects from "../pages/Projects";
+import PostList from "../pages/PostList";
 
 import SignUp from "../pages/SignUp";
 import { ApolloProvider } from '@apollo/react-hooks';
