@@ -7,8 +7,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AddPost from "../pages/AddPost";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
+
 import Posts from "../pages/Posts";
 import Projects from "../pages/Projects";
+
 import SignUp from "../pages/SignUp";
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
@@ -34,10 +36,10 @@ function Routes() {
       <Navbar></Navbar>
       <Switch>
         <Route exact path="/" component={Dashboard} />
-        <Route path="/projects" component={Projects} />
+        <Route path="/projects" component={PostList} />
         <Route path="/createpost" component={CreatePost} />
         <Route path="/login" component={Login} />
-        <Route path="/postdetail" component={PostDetail} />
+        <Route path="/postdetail/:id" component={PostDetail} />
         <Route path="/signUp" component={SignUp} />
       </Switch>
       <Footer></Footer>

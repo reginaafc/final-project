@@ -1,0 +1,14 @@
+/* .cardElement{
+    
+} */
+
+.cardElement{
+    height: 500px;
+    width: 300px;
+    margin: 40px;
+}
+
+.cardElementImage{
+    width: 100%;
+    height: 400px;
+}

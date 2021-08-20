@@ -26,11 +26,6 @@ function postDetailBody({ description, results, ulProps, email }) {
                 key={ulProp.key}
               />
             ))}
-            <li className="miscellaneousContact">
-              <a href={`mailto:${ulProps.email}`} className="contactLink">
-                CONTACT ME ABOUT THIS PROJECT
-              </a>
-            </li>
           </ul>
         </div>
       </div>

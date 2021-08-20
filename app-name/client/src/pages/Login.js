@@ -4,14 +4,12 @@ import { Col, Row } from "antd";
 import LoginForm from "../components/LoginForm";
 
 
-
 function Login(props) {
   return (
     <Row>
       <Col xs={24}>
         <LoginForm>
           </LoginForm>
-        
       </Col>
     </Row>
   );

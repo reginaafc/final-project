@@ -40,10 +40,10 @@ export default function CreatePost() {
           },
         }
       : null;
-
+      
   const props = {
     name: "file",
-    multiple: true,
+    multiple: false,
     action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
     onChange(info) {
       const { status } = info.file;
@@ -81,6 +81,7 @@ export default function CreatePost() {
               layout: formLayout,
             }}
             onValuesChange={onFormLayoutChange}
+            className="createPostForm"
           >
             <Form.Item label="Author">
               <Input placeholder="input placeholder" />
