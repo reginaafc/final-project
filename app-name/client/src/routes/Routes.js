@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import PostDetail from "../pages/PostDetail";
 import PostList from "../pages/PostList";
 import CreatePost from "../pages/CreatePost";
+import userProjects from "../pages/userPostList";
 
 
 import SignUp from "../pages/SignUp";
@@ -32,19 +33,20 @@ function Routes() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
-      <Navbar></Navbar>
-      <Switch>
-        <Route exact path="/" component={Dashboard} />
-        <Route path="/projects" component={PostList} />
-        <Route path="/createpost" component={CreatePost} />
-        <Route path="/login" component={Login} />
-        <Route path="/postdetail/:id" component={PostDetail} />
-        <Route path="/signUp" component={SignUp} />
-      </Switch>
-      <Footer></Footer>
-    </BrowserRouter>
+        <Navbar></Navbar>
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/projects" component={PostList} />
+          <Route path="/createpost" component={CreatePost} />
+          <Route path="/login" component={Login} />
+          <Route path="/postdetail/:id" component={PostDetail} />
+          <Route path="/signUp" component={SignUp} />
+          <Route path="/userprojects" component={userProjects} />
+        </Switch>
+        <Footer></Footer>
+      </BrowserRouter>
     </ApolloProvider>
-    
+
   );
 }
 
