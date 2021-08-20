@@ -24,7 +24,7 @@
 .postListCardContainer{
     width: 100%;
     padding: 0 5% 0 5%;
-    background-color: blanchedalmond;
+    background-color: rgb(232, 232, 232);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
