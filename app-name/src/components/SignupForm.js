@@ -1,105 +1,185 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/react-hooks";
+import { Form, Button, Alert } from "react-bootstrap";
 
-function SignupForm(props) {
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
+
+const SignupForm = () => {
+  const [userFormData, setUserFormData] = useState({
+    name:"",
+    last_name:"",
+    username: "",
+    email: "",
+    password: "",
+    phone:"",
+  });
+
+  const [validated] = useState(false);
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const [addUser] = useMutation(ADD_USER);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+        name:"",
+        last_name:"",
+        username: "",
+        email: "",
+        password: "",
+        phone:"",
+    });
+  };
+
   return (
-    <section className="flex items-center justify-center flex-1 pt-12 pb-12 ">
-      <section class="rounded-lg sm:border-2 px-4 lg:px-24 py-16 lg:max-w-xl sm:max-w-md w-full">
-        <p class="text-gray-600 text-3xl">Create an account.</p>
-        <form id="signUpBtn" className="flex flex-col">
-          <div className="pt-3 mb-6 bg-gray-200 rounded">
-            <label
-              className="block mb-2 ml-3 text-sm font-bold text-gray-700"
-              for="name"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-3 pb-3 text-gray-700 transition duration-500 bg-gray-200 border-b-4 border-gray-300 rounded focus:outline-none focus:border-red-900"
-            />
-          </div>
-          <div className="pt-3 mb-6 bg-gray-200 rounded">
-            <label
-              className="block mb-2 ml-3 text-sm font-bold text-gray-700"
-              for="lastName"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              className="w-full px-3 pb-3 text-gray-700 transition duration-500 bg-gray-200 border-b-4 border-gray-300 rounded focus:outline-none focus:border-red-900"
-            />
-          </div>
-          <div className="pt-3 mb-6 bg-gray-200 rounded">
-            <label
-              className="block mb-2 ml-3 text-sm font-bold text-gray-700"
-              for="userName"
-            >
-              User Name
-            </label>
-            <input
-              type="text"
-              id="userName"
-              className="w-full px-3 pb-3 text-gray-700 transition duration-500 bg-gray-200 border-b-4 border-gray-300 rounded focus:outline-none focus:border-red-900"
-            />
-          </div>
-          <div className="pt-3 mb-6 bg-gray-200 rounded">
-            <label
-              className="block mb-2 ml-3 text-sm font-bold text-gray-700"
-              for="email"
-            >
-              Email
-            </label>
-            <input
-              type="text"
-              id="email"
-              className="w-full px-3 pb-3 text-gray-700 transition duration-500 bg-gray-200 border-b-4 border-gray-300 rounded focus:outline-none focus:border-red-900"
-            />
-          </div>
-          <div className="pt-3 mb-6 bg-gray-200 rounded">
-            <label
-              className="block mb-2 ml-3 text-sm font-bold text-gray-700"
-              for="password"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="w-full px-3 pb-3 text-gray-700 transition duration-500 bg-gray-200 border-b-4 border-gray-300 rounded focus:outline-none focus:border-red-900"
-            />
-          </div>
+    <>
+      <section className="flex flex-col m-8">
+        <div className="flex items-center justify-center flex-1">
+          <div className="w-full px-4 py-12 text-center rounded-lg sm:border-2 lg:px-24 lg:max-w-xl sm:max-w-md">
+            {/* This is needed for the validation functionality above */}
+            <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+              {/* show alert if server response is bad */}
+              <h1 className="w-full mb-8 text-3xl font-bold tracking-wider text-gray-600">
+              Sign Up
+            </h1>
+              <Alert
+                dismissible
+                onClose={() => setShowAlert(false)}
+                show={showAlert}
+                variant="danger"
+              >
+                Something went wrong with your signup!
+              </Alert>
 
-          <div className="pt-3 mb-6 bg-gray-200 rounded">
-            <label
-              className="block mb-2 ml-3 text-sm font-bold text-gray-700"
-              for="phone"
-            >
-              Phone Number
-            </label>
-            <input
-              type="text"
-              id="phone"
-              className="w-full px-3 pb-3 text-gray-700 transition duration-500 bg-gray-200 border-b-4 border-gray-300 rounded focus:outline-none focus:border-red-900"
-            />
-          </div>
+              <Form.Group>
+                <Form.Label htmlFor="name">Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Your Name"
+                  name="name"
+                  onChange={handleInputChange}
+                  value={userFormData.name}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Name is required!
+                </Form.Control.Feedback>
+              </Form.Group>
 
-          <button
-            className="py-2 font-bold text-white transition duration-200 bg-red-900 rounded shadow-lg hover:bg-red-800 hover:shadow-xl"
-            type="submit"
-          >
-            Sign Up
-          </button>
-        </form>
+              <Form.Group>
+                <Form.Label htmlFor="last_name">Last Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Your Last name"
+                  name="last_name"
+                  onChange={handleInputChange}
+                  value={userFormData.last_name}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Last Name is required!
+                </Form.Control.Feedback>
+              </Form.Group>
+              
+              <Form.Group>
+                <Form.Label htmlFor="username">Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Your username"
+                  name="username"
+                  onChange={handleInputChange}
+                  value={userFormData.username}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  User Name is required!
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label htmlFor="email">Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Your email address"
+                  name="email"
+                  onChange={handleInputChange}
+                  value={userFormData.email}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Email is required!
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label htmlFor="password">Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Your password"
+                  name="password"
+                  onChange={handleInputChange}
+                  value={userFormData.password}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Password is required!
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label htmlFor="phone">Phone</Form.Label>
+                <Form.Control
+                  type="phone"
+                  placeholder="Your phone"
+                  name="phone"
+                  onChange={handleInputChange}
+                  value={userFormData.phone}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Phone is required!
+                </Form.Control.Feedback>
+              </Form.Group>
+              <button
+              className="py-2 font-bold text-white transition duration-200 bg-red-900 rounded shadow-lg hover:bg-red-800 w-60 hover:shadow-xl"
+                disabled={
+                  !(
+                    userFormData.username &&
+                    userFormData.email &&
+                    userFormData.password
+                  )
+                }
+                type="submit"
+                variant="success"
+              >
+                Submit
+              </button>
+              {/* {error && <div>Sign up failed</div>} */}
+            </Form>
+          </div>
+        </div>
       </section>
-      
-    </section>
-    
+    </>
   );
-  
-
-}
+};
 
 export default SignupForm;

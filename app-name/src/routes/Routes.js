@@ -6,16 +6,30 @@ import Login from "../pages/Login";
 import Posts from "../pages/Posts";
 import Projects from "../pages/Projects";
 import SignUp from "../pages/SignUp";
-import React, { useState } from 'react';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+
+
+const client = new ApolloClient({
+  // uri: 'http://localhost:3001/graphql'
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  uri: '/graphql'
+});
+
+
 
 function Routes() {
-  const [token, setToken] = useState();
-
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
   return (
-    <BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Dashboard} />
         <Route path="/projects" component={Projects} />
@@ -25,6 +39,9 @@ function Routes() {
         <Route path="/signUp" component={SignUp} />
       </Switch>
     </BrowserRouter>
+
+    </ApolloProvider>
+  
   );
 }
 
