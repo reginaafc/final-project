@@ -1,8 +1,35 @@
 {
+<<<<<<< HEAD
   "dependencies": {
     "apollo-server-express": "^3.1.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "stripe": "^8.170.0"
+=======
+  "name": "mern-shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.1",
+    "mongojs": "^3.1.0"
+>>>>>>> 9182622d901ef27474ce4d127e5af2d3f69713a9
   }
 }

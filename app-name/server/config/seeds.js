@@ -2,13 +2,13 @@ const db = require('./connection');
 const { User, Post, Donation } = require('../models');
 const { isValidObjectId } = require('mongoose');
 const mongojs = require('mongojs');
-​
-​
+
+
 db.once('open', async () => {
-​
+
     await Donation.deleteMany();
     await User.deleteMany();
-​
+
     const eduardo = await User.create({
         name: 'Eduardo',
         last_name: 'Martínez',
@@ -16,7 +16,7 @@ db.once('open', async () => {
         email: 'emartinez@mail.com',
         password: 'password12345'
     });
-​
+
     const erick = await User.create({
         name: 'Erick',
         last_name: 'Contreras',
@@ -24,9 +24,9 @@ db.once('open', async () => {
         email: 'econtreras@mail.com',
         password: 'password12345'
     });
-​
+
     console.log('users seeded');
-​
+
     const donations = await Donation.insertMany([
         {
             user: eduardo._id,
@@ -59,11 +59,11 @@ db.once('open', async () => {
         //     id_post: '5'
         // },
     ]);
-​
+
     console.log('donations seeded');
-​
+
     await Post.deleteMany();
-​
+
     await Post.create({
         project_name: 'My first Macbook',
         description: "Donate to support the purchase of my own personal computer for 2022.",
@@ -75,7 +75,7 @@ db.once('open', async () => {
         results: 'As soon as I have full donation I will let you know',
         expiration_date: '12/31/2021',
     });
-​
+
     await Post.create({
         project_name: 'Mexican Sea Turtle Foundation',
         description: "Donate to protect marine turtles from illegal slaughter and to protect nests from illegal poaching. With the main purpouse of preventing extintion.",
@@ -87,7 +87,7 @@ db.once('open', async () => {
         results: '3 species of sea tutles are protected, 1000 hatchling hatched in our care, 2 missions completed',
         expiration_date: '01/01/2022'
     });
-​
+
     await Post.create({
         project_name: 'Summer Scholarship in foreign country',
         description: "It will provide a grant to selected individuals to work, live, and learn for a 12-week summer period in a foreign country.",
@@ -99,7 +99,7 @@ db.once('open', async () => {
         results: '3 consecutive years offering scholarships',
         expiration_date: '01/01/2022'
     });
-​
+
     await Post.create({
         project_name: 'Park transformation',
         description: "Donations will warrant a reconstruction of destroyed parks to increase secure and healthy places for familiar leisure.",
@@ -111,7 +111,7 @@ db.once('open', async () => {
         results: '1 transformed park.',
         expiration_date: '12/31/2023',
     });
-​
+
     await Post.create({
         project_name: 'Backpacking across Asia',
         description: "I'm a dreamer who whises to travel around Asian continent through a period of 2 years. Posting daily videos of my experiences.",
@@ -123,7 +123,7 @@ db.once('open', async () => {
         results: 'Previous donation help me travel from Cobán to Beijing',
         expiration_date: '12/31/2023',
     });
-​
+
     await Post.create({
         project_name: 'Set my pool',
         description: "I am an adoptive mother of 15 children under the age of 18. Since the pandemic, we have not had the opportunity to have outdoor activities. We have a large garden, where we plan to build a pool for the healthy recreation of our children.",
@@ -135,7 +135,7 @@ db.once('open', async () => {
         results: 'No previous funding. We will mantain you actualized',
         expiration_date: '12/31/2021',
     });
-​
+
     await Post.create({
         project_name: 'Breakfast Club Funding',
         description: "It will support breakfast and lunches to children of families who need it most.",
@@ -147,7 +147,7 @@ db.once('open', async () => {
         results: '+1500 daily breakfast last year and +3000 children awaiting',
         expiration_date: '12/21/2025',
     });
-​
+
     await Post.create({
         project_name: 'Travel to Mahahual',
         description: "Make my dream become true",
@@ -159,10 +159,8 @@ db.once('open', async () => {
         results: 'It is the first time I post',
         expiration_date: '09/09/2021',
     });
-​
+
     console.log('post seeded');
-​
-​
-​
+
     process.exit();
 });

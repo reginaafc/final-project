@@ -12,7 +12,6 @@ const SignupForm = () => {
     username: "",
     email: "",
     password: "",
-    phone: "",
   });
 
   const [validated] = useState(false);
@@ -46,7 +45,6 @@ const SignupForm = () => {
       username: "",
       email: "",
       password: "",
-      phone: "",
     });
   };
 
@@ -145,20 +143,6 @@ const SignupForm = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group>
-                <Form.Label htmlFor="phone">Phone</Form.Label>
-                <Form.Control
-                  type="phone"
-                  placeholder="Your phone"
-                  name="phone"
-                  onChange={handleInputChange}
-                  value={userFormData.phone}
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Phone is required!
-                </Form.Control.Feedback>
-              </Form.Group>
               <button
                 className="py-2 font-bold text-white transition duration-200 bg-red-900 rounded shadow-lg hover:bg-red-800 w-60 hover:shadow-xl"
                 disabled={
