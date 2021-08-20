@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
-import PostList from "../pages/PostList";
 import PostDetail from "../pages/PostDetail";
 import PostList from "../pages/PostList";
 import CreatePost from "../pages/CreatePost";
