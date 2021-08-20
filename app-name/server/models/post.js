@@ -23,7 +23,7 @@ const postSchema = new Schema({
     type: String
   },
   fundraise_account: {
-    type: Number,
+    type: String,
   },
   results: {
     type: String
@@ -35,6 +35,12 @@ const postSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'User'
+    }
+  ],
+  donations: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Donation'
     }
   ]
 });
