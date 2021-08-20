@@ -7,8 +7,9 @@ import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import PostList from "../pages/PostList";
 import PostDetail from "../pages/PostDetail";
-import PostList from "../pages/PostList";
 import CreatePost from "../pages/CreatePost";
+import Payment from "../pages/Payment";
+
 
 
 import SignUp from "../pages/SignUp";
@@ -41,6 +42,7 @@ function Routes() {
         <Route path="/login" component={Login} />
         <Route path="/postdetail/:id" component={PostDetail} />
         <Route path="/signUp" component={SignUp} />
+        <Route path="/payment" component={Payment} />
       </Switch>
       <Footer></Footer>
     </BrowserRouter>

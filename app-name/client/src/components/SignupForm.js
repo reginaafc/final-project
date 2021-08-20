@@ -51,7 +51,7 @@ const SignupForm = () => {
   };
 
   return (
-    <>
+ 
       <section className="flex flex-col m-8">
         <div className="flex items-center justify-center flex-1">
           <div className="w-full px-4 py-12 text-center rounded-lg sm:border-2 lg:px-24 lg:max-w-xl sm:max-w-md">
@@ -178,7 +178,7 @@ const SignupForm = () => {
           </div>
         </div>
       </section>
-    </>
+
   );
 };
 
