@@ -7,12 +7,12 @@ import { ADD_USER } from "../utils/mutations";
 
 const SignupForm = () => {
   const [userFormData, setUserFormData] = useState({
-    name:"",
-    last_name:"",
+    name: "",
+    last_name: "",
     username: "",
     email: "",
     password: "",
-    phone:"",
+    phone: "",
   });
 
   const [validated] = useState(false);
@@ -41,12 +41,12 @@ const SignupForm = () => {
     }
 
     setUserFormData({
-        name:"",
-        last_name:"",
-        username: "",
-        email: "",
-        password: "",
-        phone:"",
+      name: "",
+      last_name: "",
+      username: "",
+      email: "",
+      password: "",
+      phone: "",
     });
   };
 
@@ -59,8 +59,8 @@ const SignupForm = () => {
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
               {/* show alert if server response is bad */}
               <h1 className="w-full mb-8 text-3xl font-bold tracking-wider text-gray-600">
-              Sign Up
-            </h1>
+                Sign Up
+              </h1>
               <Alert
                 dismissible
                 onClose={() => setShowAlert(false)}
@@ -99,7 +99,7 @@ const SignupForm = () => {
                   Last Name is required!
                 </Form.Control.Feedback>
               </Form.Group>
-              
+
               <Form.Group>
                 <Form.Label htmlFor="username">Username</Form.Label>
                 <Form.Control
@@ -160,7 +160,7 @@ const SignupForm = () => {
                 </Form.Control.Feedback>
               </Form.Group>
               <button
-              className="py-2 font-bold text-white transition duration-200 bg-red-900 rounded shadow-lg hover:bg-red-800 w-60 hover:shadow-xl"
+                className="py-2 font-bold text-white transition duration-200 bg-red-900 rounded shadow-lg hover:bg-red-800 w-60 hover:shadow-xl"
                 disabled={
                   !(
                     userFormData.username &&
