@@ -4,7 +4,7 @@ import CreatePost from "../pages/CreatePost";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import PostDetail from "../pages/PostDetail";
-import Projects from "../pages/Projects";
+import PostList from "../pages/PostList";
 import SignUp from "../pages/SignUp";
 
 import Navbar from "../components/Navbar";
@@ -16,10 +16,10 @@ function Routes() {
       <Navbar></Navbar>
       <Switch>
         <Route exact path="/" component={Dashboard} />
-        <Route path="/projects" component={Projects} />
+        <Route path="/projects" component={PostList} />
         <Route path="/createpost" component={CreatePost} />
         <Route path="/login" component={Login} />
-        <Route path="/postdetail" component={PostDetail} />
+        <Route path="/postdetail/:id" component={PostDetail} />
         <Route path="/signUp" component={SignUp} />
       </Switch>
       <Footer></Footer>

@@ -43,4 +43,12 @@
   .postDetailDescription {
     padding: 200px 50px 0 50px;
   }
+
+  .postDetailTitle {
+    font-size: 35px;
+  }
+
+  .postDateCreated {
+    font-size: 25px;
+  }
 }

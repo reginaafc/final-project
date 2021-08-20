@@ -1,0 +1,31 @@
+.postListContainer{
+    width: 100%;
+    margin-top: -15px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.postListTitle{
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 45px;
+    font-weight: 500;
+
+
+    /* background-color: blanchedalmond; */
+}
+
+.postListCardContainer{
+    width: 100%;
+    padding: 0 5% 0 5%;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

@@ -7,6 +7,16 @@ import { FaKissWinkHeart } from "react-icons/fa";
 
 // Sets the layout for the header container and maps over headerSection to display all the elements in the header
 
+// const InnerBar = styled.div`
+//   height: 100%;
+//   background-color: #44c59f;
+//   border-radius: 10px;
+//   position: relative;
+
+//   animation: ${(props) => props.loadBar} 3s normal forwards;
+//   width: 0;
+// `;
+
 function PostDetailProgressBar({ percentage }) {
   const loadBar = keyframes`
 0% { width: 0; }
@@ -32,7 +42,7 @@ function PostDetailProgressBar({ percentage }) {
       </div>
       <div className="outerBarContainer">
         <div className="outerBar">
-          <InnerBar>
+          <InnerBar props={loadBar}>
             <div className="barPercentagePointer"></div>
             <div className="barTextPercentage">{percentage}%</div>
           </InnerBar>

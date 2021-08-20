@@ -37,6 +37,11 @@
   padding: 20px;
 }
 
+.createPostForm{
+  background-color: lightcyan;
+  padding: 10px;
+}
+
 .createPostUploadContainer {
   width: 50%;
   height: auto;

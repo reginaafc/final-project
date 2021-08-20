@@ -9,10 +9,10 @@ function AddPost(props) {
   return (
     <Row>
       <Col xs={24}>
-        <Navbar></Navbar>
+
         <p>ADD POST</p>
 
-        <Footer></Footer>
+
       </Col>
     </Row>
   );
