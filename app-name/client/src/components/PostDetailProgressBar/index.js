@@ -35,17 +35,19 @@ function PostDetailProgressBar({ percentage }) {
 
   return (
     <div className="progressBarContainer">
-      <div className="progressBarCommentContainer">
-        <div className="progressBarComment">
-          Goal <FaKissWinkHeart />
+      <div className="progressBar">
+        <div className="progressBarCommentContainer">
+          <div className="progressBarComment">
+            Goal <FaKissWinkHeart />
+          </div>
         </div>
-      </div>
-      <div className="outerBarContainer">
-        <div className="outerBar">
-          <InnerBar props={loadBar}>
-            <div className="barPercentagePointer"></div>
-            <div className="barTextPercentage">{percentage}%</div>
-          </InnerBar>
+        <div className="outerBarContainer">
+          <div className="outerBar">
+            <InnerBar props={loadBar}>
+              <div className="barPercentagePointer"></div>
+              <div className="barTextPercentage">{percentage}%</div>
+            </InnerBar>
+          </div>
         </div>
       </div>
     </div>
