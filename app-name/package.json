@@ -1,4 +1,11 @@
 {
+<<<<<<< HEAD
+  "dependencies": {
+    "apollo-server-express": "^3.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "stripe": "^8.170.0"
+=======
   "name": "mern-shopping",
   "version": "1.0.0",
   "description": "",
@@ -23,5 +30,6 @@
     "express-graphql": "^0.12.0",
     "graphql": "^15.5.1",
     "mongojs": "^3.1.0"
+>>>>>>> 9182622d901ef27474ce4d127e5af2d3f69713a9
   }
 }

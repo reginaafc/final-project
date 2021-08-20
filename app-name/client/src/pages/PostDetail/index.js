@@ -74,13 +74,16 @@ export default function Details() {
           projectName={postData.project_name}
           date={postData.publication_date}
         />
+        
         <PostDetailBody
           description={postData.description}
           results={postData.results}
           ulProps={ulProps}
           // email={postDetails.userEmail}
         />
+   
         <div className="collageSeparator"></div>
+        <a href="/payment" className="text-white m-8 p-3 rounded-full bg-blue-900">Donate</a>
         <PostDetailProgressBar percentage={percentage} />
       </div>
     </div>
