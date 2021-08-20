@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 
 const postSchema = new Schema({
   project_name: {
@@ -11,10 +9,9 @@ const postSchema = new Schema({
   description: {
     type: String
   },
-  publication_date: {
+  publication_date: {
     type: Date,
-    required: true
-    // default: Date.now 
+    default: Date.now,
   },
   location: {
     type: String
@@ -25,19 +22,9 @@ const postSchema = new Schema({
   fundraise_destination: {
     type: String
   },
-  price: {
-    type: Number,
-    required: true,
-    min: 0.99
-  },
   fundraise_account: {
     type: Number,
-    validate: {
-      validator: function (v) {
-        return /d{10}/.test(v);
-      },
-      message: '{VALUE} is not a valid 10 digit number!'
-    }
+
   },
   results: {
     type: String
@@ -45,13 +32,14 @@ const postSchema = new Schema({
   expiration_date: {
     type: Date,
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
-  }
+  user: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ]
 });
 
-const Post = mongoose.model('Post', postSchema);
+const Post = model('Post', postSchema);
 
 module.exports = Post;
