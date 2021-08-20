@@ -1,18 +1,38 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CreatePost from "../pages/CreatePost";
-import Dashboard from "../pages/Dashboard";
-import Login from "../pages/Login";
 import PostDetail from "../pages/PostDetail";
-import PostList from "../pages/PostList";
-import SignUp from "../pages/SignUp";
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AddPost from "../pages/AddPost";
+import Dashboard from "../pages/Dashboard";
+import Login from "../pages/Login";
+
+import Posts from "../pages/Posts";
+import Projects from "../pages/Projects";
+
+import SignUp from "../pages/SignUp";
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+
+const client = new ApolloClient({
+  // uri: 'http://localhost:3001/graphql'
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  uri: '/graphql'
+});
 
 function Routes() {
   return (
-    <BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
       <Navbar></Navbar>
       <Switch>
         <Route exact path="/" component={Dashboard} />
@@ -24,6 +44,8 @@ function Routes() {
       </Switch>
       <Footer></Footer>
     </BrowserRouter>
+    </ApolloProvider>
+    
   );
 }
 

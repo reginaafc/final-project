@@ -1,8 +1,8 @@
 import React from "react";
 import "antd/dist/antd.css";
 import { Col, Row } from "antd";
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
+
+import SignupForm from "../components/SignupForm";
 
 
 function SignUp(props) {
@@ -10,8 +10,7 @@ function SignUp(props) {
     <Row>
       <Col xs={24}>
 
-        <p>SignUp</p>
-
+        <SignupForm></SignupForm>
 
       </Col>
     </Row>
