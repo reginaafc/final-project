@@ -1,4 +1,4 @@
-# Fund-raising your cause
+# Hand in hand
 
 ## Description
 
@@ -39,7 +39,12 @@ After this the user will be able to:
 
 
 ## Technologies
+* HTML
+* CSS
+* JS
 * React
+* Mern
+* Ant Design
 * GraphQL (node.js and express.js server)
 * Database: MongoDB and Mongoose ODM
 * Heroku
@@ -47,10 +52,10 @@ After this the user will be able to:
 ## Screenshot
 
 1. Homepage
-![Site](./Develop/public/assets/01-FitnessTracker.png)
+![Site](./app-name/client/src/assests/Homepage.png)
 
 2. Post Webpage
-![Site](/Develop/public/assets/02-SelectTypeOfExcercise.png)
+![Site](./app-name/client/src/assests/Login.png)
 
 3. Add a post
 ![Site](/Develop/public/assets/03-AddYourExcercise.png)
