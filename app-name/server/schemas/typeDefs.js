@@ -29,12 +29,21 @@ type Post {
   results: String
   expiration_date: String
   donation_desired: Float
-  user: User
+  user: UserSubSchema
   donations: [Donation]
 }
 
+type UserSubSchema{
+  name: String
+  last_name: String
+  username: String
+  email: String
+  userId: String
+}
+
+
 input DonationInput{
-  amount: Float
+  amount: String
   userId: String
 }
 
@@ -64,6 +73,7 @@ type Auth {
 type Query {
   allPosts: [Post]
   singlePost(postId:ID!): Post
+  singleUser: [Post]
 }
 
 type Mutation {

@@ -17,6 +17,14 @@ const resolvers = {
       console.log(foundPost);
       return foundPost;
     },
+    singleUser: async (parent, args, context) => {
+      if (context.user) {
+        const post = await Post.find({ "user.userId" : context.user._id });
+        console.log(post);
+        return post;
+      }
+      throw new AuthenticationError("You need to be logged in");
+    }
   },
 
   Mutation: {

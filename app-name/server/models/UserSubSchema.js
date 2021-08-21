@@ -19,13 +19,13 @@ const userSubSchema = new Schema({
     username: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
         trim: true,
     },
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
         match: [/.+@.+\..+/, 'Must match an email address!'],
     },
 });

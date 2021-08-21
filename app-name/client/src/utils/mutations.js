@@ -40,7 +40,7 @@ export const ADD_POST = gql`
       expiration_date
       donation_desired
       user {
-        _id
+        userId
         username
         name
         last_name
