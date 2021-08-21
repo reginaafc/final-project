@@ -20,13 +20,13 @@ You can either make possible others' dreams or everyone can make your dreams com
 
 For usage and be able to display functionality:
 
-1. Clone the repository: 
+1. Clone the repository: https://github.com/reginaafc/final-project.git
 2. Open the terminal and "npm install" followed by "npm start".
 3. Open localhost on terminal 3001
 
 OR
 
-1. Open heroku link: 
+1. Open heroku link: https://thawing-peak-40630.herokuapp.com/
 
 ## Usage
 
