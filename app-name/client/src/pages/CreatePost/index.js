@@ -36,40 +36,50 @@ export default function CreatePost() {
   // Handle form change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log('name',name,'\nvalue',value);
+    console.log("name", name, "\nvalue", value);
     // console.log('userformdata',userFormData);
     setUserFormData({ ...userFormData, [name]: value });
   };
 
+  const handleFormFail = async (event) => {
+    console.log("Please fill all the fields");
+    // console.log(event);
+  };
+
   // Handle form submit
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    // const form = event.currentTarget;
-    // if (form.checkValidity() === false) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // }
-    let today = new Date();
-    let ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(today);
-    let mo = new Intl.DateTimeFormat("en", { month: "short" }).format(today);
-    let da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(today);
-    console.log(`${da}-${mo}-${ye}`);
-
     try {
       console.log("Trying to create post");
-      // const { data } = await addPost({
-      //   variables: { ...userFormData },
-      // });
+      console.log("formData", userFormData);
+      const postData = {
+        description: userFormData.description,
+        fundraise_account: userFormData.fundraise_account,
+        fundraise_destination: userFormData.fundraise_destination,
+        location: userFormData.location,
+        project_name: userFormData.project_name
+      };
+      console.log("postData", postData);
+      const { data } = await addPost({
+        variables: { postData },
+      });
     } catch (err) {
       console.error(err);
     }
+
+    setUserFormData({
+      project_name: "",
+      description: "",
+      fundraise_destination: "",
+      fundraise_account: "",
+      results: "",
+      location: "",
+    });
   };
 
   // Setting up form layout
-  const onFormLayoutChange = ({ layout }) => {
-    setFormLayout(layout);
-  };
+  // const onFormLayoutChange = ({ layout }) => {
+  //   setFormLayout(layout);
+  // };
 
   // Setting up form items layout
   const formItemLayout =
@@ -135,64 +145,111 @@ export default function CreatePost() {
             initialValues={{
               layout: formLayout,
             }}
-            onValuesChange={onFormLayoutChange}
+            // onValuesChange={onFormLayoutChange}
             className="createPostForm"
-            onSubmit={handleFormSubmit}
+            onFinish={handleFormSubmit}
+            onFinishFailed={handleFormFail}
           >
-            <Form.Item label="Project Name">
-              <Input
-                placeholder="input placeholder"
-                onChange={handleInputChange}
-                value={userFormData.project_name}
-                name="project_name"
-              />
+            <Form.Item
+              label="Project Name"
+              name="formName"
+              onChange={handleInputChange}
+              value={userFormData.project_name}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input the name of your project!",
+                },
+              ]}
+            >
+              <Input placeholder="input placeholder" name="project_name" />
             </Form.Item>
-            <Form.Item label="Description">
+            <Form.Item
+              label="formDescription"
+              onChange={handleInputChange}
+              value={userFormData.description}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input the description of your project!",
+                },
+              ]}
+            >
               <TextArea
                 rows={4}
                 placeholder="input placeholder"
-                onChange={handleInputChange}
-                value={userFormData.description}
                 name="description"
               />
             </Form.Item>
-            <Form.Item label="Fundraise Destination">
+            <Form.Item
+              label="Fundraise Destination"
+              onChange={handleInputChange}
+              value={userFormData.fundraise_destination}
+              name="formDestination"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your fundraise destination!",
+                },
+              ]}
+            >
               <Input
                 placeholder="Doctors without borders"
-                onChange={handleInputChange}
-                value={userFormData.fundraise_destination}
                 name="fundraise_destination"
               />
             </Form.Item>
-            <Form.Item label="Fundraise Account">
-              <Input
-                placeholder="123456789"
-                onChange={handleInputChange}
-                value={userFormData.fundraise_account}
-                name="fundraise_account"
-              />
+            <Form.Item
+              label="Fundraise Account"
+              onChange={handleInputChange}
+              value={userFormData.fundraise_account}
+              name="formAccount"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your fundraise account!",
+                },
+              ]}
+            >
+              <Input placeholder="123456789" name="fundraise_account" />
             </Form.Item>
-            <Form.Item label="Previous Results">
+            <Form.Item
+              label="Previous Results"
+              onChange={handleInputChange}
+              value={userFormData.results}
+              name="formResults"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your previous results",
+                },
+              ]}
+            >
               <Input
                 placeholder="So far we have planted more than 1000 trees and saved..."
-                onChange={handleInputChange}
-                value={userFormData.results}
                 name="results"
               />
             </Form.Item>
-            <Form.Item label="Location">
-              <Input
-                placeholder="Zapopan, Jalisco, Mexico"
-                onChange={handleInputChange}
-                value={userFormData.location}
-                name="location"
-              />
+            <Form.Item
+              label="Location"
+              onChange={handleInputChange}
+              value={userFormData.location}
+              name="formLocation"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your project location!",
+                },
+              ]}
+            >
+              <Input placeholder="Zapopan, Jalisco, Mexico" name="location" />
             </Form.Item>
             {/* <Form.Item label="Donation Amount Being Asked">
               <Input placeholder="3000" />
             </Form.Item> */}
             <Form.Item {...buttonItemLayout}>
-              <Button type='submit' variant='success'>Submit</Button>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
             </Form.Item>
           </Form>
         </div>

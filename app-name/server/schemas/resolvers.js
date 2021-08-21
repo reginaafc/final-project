@@ -5,23 +5,23 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     allPosts: async () => {
-        // console.log("getting all posts");
-        const foundPosts = await Post.find({});
-        // console.log(foundPosts);
-        return foundPosts;
+      // console.log("getting all posts");
+      const foundPosts = await Post.find({});
+      // console.log(foundPosts);
+      return foundPosts;
     },
-    singlePost: async (parent,{postId}) => {
-        console.log("tryng to find single post");
-        const foundPost =  await Post.findById(postId);
-        console.log(foundPost);
-        return foundPost;
+    singlePost: async (parent, { postId }) => {
+      console.log("tryng to find single post");
+      const foundPost = await Post.findById(postId);
+      console.log(foundPost);
+      return foundPost;
     },
   },
 
   Mutation: {
     // Create a new user
     addUser: async (parent, { name, last_name, username, email, password }) => {
-      console.log("Trying");
+      // console.log("Trying");
       const user = await User.create({
         name,
         last_name,
@@ -51,34 +51,44 @@ const resolvers = {
     },
     addPost: async (parent, { postData }, context) => {
       // Check if user exists, retrieve user info
-      //   if (context.user) {
-      //     console.log("postData", postData);
-      //     const foundUser = await User.findOne({ _id: context.user._id });
-      //     const foundUserFormatted = {
-      //       _id: foundUser._id,
-      //       name: foundUser.name,
-      //       last_name: foundUser.last_name,
-      //       username: foundUser.username,
-      //       email: foundUser.email,
-      //     };
-      //     const newPost = await Post.create({
-      //       ...postData,
-      //       ...foundUserFormatted,
-      //     });
-      //     console.log("newPost", newPost);
-      //     console.log("foundUser", foundUser);
-      //     console.log("formatted user", foundUserFormatted);
-      //     return newPost;
-      //   }
-      //   console.log("context.user", context.user);
-      //   throw new AuthenticationError("There was an error creating the post");
+      if (context.user) {
+        console.log("postData", postData);
+        const foundUser = await User.findOne({ _id: context.user._id });
+        const foundUserFormatted = {
+        userId: foundUser._id,
+        name: foundUser.name,
+        last_name: foundUser.last_name,
+        username: foundUser.username,
+        email: foundUser.email,
+        };
+        console.log("foundUser", foundUser);
+        const newPost = await Post.create({
+          ...postData,
+          user: foundUserFormatted,
+          new : true
+        });
+        console.log("newPost", newPost);
+        
+        // const updatePost = await Post.findOneAndUpdate(
+        //   {_id: "612072a40f31767d0820cc3b"},
+        //   { $push: {user: foundUserFormatted}}
+        // );
+        // console.log("foundUser", foundUser);
+        // console.log("updatePost", updatePost);
 
+        console.log("finished");
+        return newPost;
+
+        // return ("finished");
+      }
+      console.log("context.user", context.user);
+      throw new AuthenticationError("There was an error creating the post");
 
       const newPost = await Post.create({
         ...postData,
       });
 
-      return newPost;
+      // return newPost;
     },
     removePost: async (parent, { postId }, context) => {
       // Check if user is logged in

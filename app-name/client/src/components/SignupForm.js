@@ -12,7 +12,6 @@ const SignupForm = () => {
     username: "",
     email: "",
     password: "",
-    phone: "",
   });
 
   const [validated] = useState(false);
@@ -46,12 +45,11 @@ const SignupForm = () => {
       username: "",
       email: "",
       password: "",
-      phone: "",
     });
   };
 
   return (
-    <>
+ 
       <section className="flex flex-col m-8">
         <div className="flex items-center justify-center flex-1">
           <div className="w-full px-4 py-12 text-center rounded-lg sm:border-2 lg:px-24 lg:max-w-xl sm:max-w-md">
@@ -146,21 +144,6 @@ const SignupForm = () => {
               </Form.Group>
 
               <Form.Group>
-                <Form.Label htmlFor="phone">Phone</Form.Label>
-                <Form.Control
-                  type="phone"
-                  placeholder="Your phone"
-                  name="phone"
-                  onChange={handleInputChange}
-                  value={userFormData.phone}
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Phone is required!
-                </Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group>
               <button
                 disabled={!(userFormData.username && userFormData.email && userFormData.password)}
                 htmlType="submit"
@@ -177,7 +160,7 @@ const SignupForm = () => {
           </div>
         </div>
       </section>
-    </>
+
   );
 };
 
