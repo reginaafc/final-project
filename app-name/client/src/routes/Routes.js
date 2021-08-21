@@ -8,6 +8,7 @@ import PostDetail from "../pages/PostDetail";
 import CreatePost from "../pages/CreatePost";
 import userProjects from "../pages/userPostList";
 import Payment from "../pages/Payment";
+import PostList from "../pages/PostList";
 
 import SignUp from "../pages/SignUp";
 
