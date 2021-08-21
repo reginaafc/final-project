@@ -79,18 +79,13 @@ export default function Details() {
         />
         <PostDetailBody
           description={postData.description}
-          results={postData.results}
+          results={postData.donation_desired}
           ulProps={ulProps}
         // email={postDetails.userEmail}
         />
         <div className="collageSeparator"></div>
         <PostDetailProgressBar percentage={percentage} />
-      </div>
-      <div >
-        <div className="">
-          <p className="icons" > Goal: </p> {postData.donation_desired}
-          <div className="icons" > Donation so far: </div>{totalDonation}
-        </div>
+
 
       </div>
     </div>
