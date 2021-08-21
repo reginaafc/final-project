@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     allPosts: async () => {
       // console.log("getting all posts");
-      const foundPosts = await Post.find({}).populate('user');
+      const foundPosts = await Post.find({});
       // console.log(foundPosts);
       return foundPosts;
     },
