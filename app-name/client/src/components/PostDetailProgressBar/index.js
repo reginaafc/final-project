@@ -2,7 +2,7 @@ import React from "react";
 
 import "./PostDetailProgressBar.css";
 import styled, { keyframes } from "styled-components";
-import { FaKissWinkHeart } from "react-icons/fa";
+// import { FaKissWinkHeart } from "react-icons/fa";
 import { FaHandHoldingHeart } from 'react-icons/fa';
 
 // Sets the layout for the header container and maps over headerSection to display all the elements in the header
@@ -37,7 +37,20 @@ function PostDetailProgressBar({ percentage }) {
     <div className="progressBarContainer">
       <div className="progressBarCommentContainer">
         <div className="progressBarComment">
-          Goal <FaHandHoldingHeart className="padding: 5" />
+          Goal
+        </div>
+        <div className="outerBarContainer">
+          <div className="outerBar">
+            <InnerBar props={loadBar}>
+              <div className="barPercentagePointer"></div>
+              <div className="barTextPercentage">{percentage}%</div>
+            </InnerBar>
+          </div>
+        </div>
+      </div>
+      <div className="progressBarCommentContainer">
+        <div className="progressBarComment">
+          Raised <FaHandHoldingHeart className="padding: 5" />
         </div>
         <div className="outerBarContainer">
           <div className="outerBar">
@@ -49,6 +62,7 @@ function PostDetailProgressBar({ percentage }) {
         </div>
       </div>
     </div>
+
   );
 }
 

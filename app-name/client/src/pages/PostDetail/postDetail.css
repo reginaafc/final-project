@@ -42,3 +42,37 @@
     font-size: 16px;
     margin-left: 1000px;
 }
+
+.donationsComment {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    font-size: 30px;
+  }
+
+
+.donations {
+    width: 45%;
+    margin-left: 5%;
+    background-color: #041e6b;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-top: 0;
+  }
+
+  .donationsOne {
+    width: 45%;
+    margin-left: 5%;
+    height: 14px;
+    background-color: #041e6b;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-top: 0;
+    text-align: center;
+  }
