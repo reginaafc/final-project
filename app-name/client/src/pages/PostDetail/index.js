@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-// import { DatePicker } from 'antd';
-// import asd from '../../assets/projectImg_mockup.jpg';
+import React from "react";
 import asd from "../../assets/1.jpg";
 import "./postDetail.css";
 
@@ -23,8 +21,8 @@ export default function Details() {
   const ulProps = [
     {
       type: "Author",
-      value: "Placeholder Name",
-      // value: postData.user.username,
+      // value: "Placeholder Name",
+      value: postData.user?.username,
     },
     {
       type: "Location",
@@ -40,8 +38,8 @@ export default function Details() {
     },
     {
       type: "CONTACT ME ABOUT THIS PROJECT",
-      value: "PlaceholderEmail@email.com",
-      // value: postData.user.email,
+      // value: "PlaceholderEmail@email.com",
+      value: postData.user?.email,
     },
   ];
 
@@ -51,15 +49,19 @@ export default function Details() {
     (postDetails.currentDonations / postDetails.donationAsked) * 100
   );
   */
-  const percentage = 20;
 
   if (loading) {
     return <h2>LOADING...</h2>;
   }
-
-  console.log("postData:", postData);
-  console.log("data:", data);
-  console.log("id:", id);
+  // const percentage = 20;
+  const totalDonation = postData.donations.reduce((a,{amount}) => a+amount,0);
+  const percentage = (totalDonation ? Math.round((totalDonation / postData.donation_desired) * 100): 0);
+  // console.log("percentage:", percentage);
+  // console.log("donation_desired:", postData.donation_desired);
+  // console.log("total donation", totalDonation);
+  // console.log("postData:", postData);
+  // console.log("data:", data);
+  // console.log("id:", id);
 
   return (
     <div className="postDetailContainer">

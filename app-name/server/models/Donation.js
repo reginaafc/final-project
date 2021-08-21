@@ -1,38 +1,18 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-
-
-const donationSchema = new Schema({
-    // user: {
-    //     type: String,
-    //     required: true,
-    //     unique: false,
-    //     trim: true,
-    // },
-    amount: {
-        type: Number,
-        required: true,
-        min: 0.99
-    },
-    date: {
-        type: Date,
-        default: Date.now,
-    },
-    // id_post: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'Post'
-    //     }
-    // ],
-    user: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
-    ]
-
+const donationSubSchema = new Schema({
+  amount: {
+    type: Number,
+    required: true,
+    min: 0.99,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  userId: {
+    type: String,
+  },
 });
 
-const Donation = model('Donation', donationSchema);
-
-module.exports = Donation;
+module.exports = donationSubSchema;

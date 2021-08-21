@@ -12,9 +12,9 @@ type User {
 
 type Donation {
   _id: ID
+  amount: Float
   date: String
-  user: User
-  amount: Int
+  userId: String
 }
 
 type Post {
@@ -28,8 +28,14 @@ type Post {
   fundraise_account: String
   results: String
   expiration_date: String
+  donation_desired: Float
   user: User
   donations: [Donation]
+}
+
+input DonationInput{
+  amount: Float
+  userId: String
 }
 
 input PostInput{
@@ -39,6 +45,8 @@ input PostInput{
   fundraise_destination: String
   fundraise_account: String
   results: String
+  donation_desired: String
+  image: String
 }
 
 input UserInput{
@@ -46,12 +54,6 @@ input UserInput{
   last_name: String
   username: String
   email: String
-}
-
-input DonationInput{
-  date: String
-  user: UserInput
-  amount: Int
 }
 
 type Auth {
@@ -69,6 +71,7 @@ type Mutation {
     addUser(name: String!, last_name: String!, username: String!, email: String!, password: String!): Auth
     addPost(postData: PostInput): Post
     removePost(postId: ID!): Post
+    addDonation(postId: ID!, donation: DonationInput): Post
   }
 `
 // image: String
