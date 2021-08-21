@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_POST } from "../../utils/queries";
 
+
 export default function Details() {
   let { id } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_POST, {
@@ -54,8 +55,10 @@ export default function Details() {
     return <h2>LOADING...</h2>;
   }
   // const percentage = 20;
+
   const totalDonation = postData.donations?.reduce((a,{amount}) => a+amount,0);
   const percentage = (totalDonation ? Math.round((totalDonation / postData.donation_desired) * 100): 0);
+
   // console.log("percentage:", percentage);
   // console.log("donation_desired:", postData.donation_desired);
   // console.log("total donation", totalDonation);
@@ -84,6 +87,13 @@ export default function Details() {
         />
         <div className="collageSeparator"></div>
         <PostDetailProgressBar percentage={percentage} />
+      </div>
+      <div >
+        <div className="">
+          <p className="icons" > Goal: </p> {postData.donation_desired}
+          <div className="icons" > Donation so far: </div>{totalDonation}
+        </div>
+
       </div>
     </div>
   );
