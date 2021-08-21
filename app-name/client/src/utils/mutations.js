@@ -38,6 +38,7 @@ export const ADD_POST = gql`
       fundraise_account
       results
       expiration_date
+      donation_desired
       user {
         _id
         username

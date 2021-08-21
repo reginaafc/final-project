@@ -21,7 +21,7 @@ export default function CreatePost() {
 
   // Setting up the form
   const [form] = Form.useForm();
-  const [formLayout, setFormLayout] = useState("vertical");
+  const formLayout = "vertical";
 
   // Store form data
   const [userFormData, setUserFormData] = useState({
@@ -31,12 +31,13 @@ export default function CreatePost() {
     fundraise_account: "",
     results: "",
     location: "",
+    donation_desired: "",
   });
 
   // Handle form change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log("name", name, "\nvalue", value);
+    // console.log("name", name, "\nvalue", value);
     // console.log('userformdata',userFormData);
     setUserFormData({ ...userFormData, [name]: value });
   };
@@ -51,19 +52,13 @@ export default function CreatePost() {
     try {
       console.log("Trying to create post");
       console.log("formData", userFormData);
-      const postData = {
-        description: userFormData.description,
-        fundraise_account: userFormData.fundraise_account,
-        fundraise_destination: userFormData.fundraise_destination,
-        location: userFormData.location,
-        project_name: userFormData.project_name
-      };
-      console.log("postData", postData);
-      const { data } = await addPost({
+      const postData = userFormData;
+      await addPost({
         variables: { postData },
       });
     } catch (err) {
       console.error(err);
+      console.log(error);
     }
 
     setUserFormData({
@@ -73,37 +68,9 @@ export default function CreatePost() {
       fundraise_account: "",
       results: "",
       location: "",
+      donation_desired: "",
     });
   };
-
-  // Setting up form layout
-  // const onFormLayoutChange = ({ layout }) => {
-  //   setFormLayout(layout);
-  // };
-
-  // Setting up form items layout
-  const formItemLayout =
-    formLayout === "horizontal"
-      ? {
-          labelCol: {
-            span: 4,
-          },
-          wrapperCol: {
-            span: 14,
-          },
-        }
-      : null;
-
-  // Setting up  the form button layout
-  const buttonItemLayout =
-    formLayout === "horizontal"
-      ? {
-          wrapperCol: {
-            span: 14,
-            offset: 4,
-          },
-        }
-      : null;
 
   // Configuring dragbox
   const props = {
@@ -139,12 +106,8 @@ export default function CreatePost() {
         </div>
         <div className="createPostFormContainer">
           <Form
-            {...formItemLayout}
             layout={formLayout}
             form={form}
-            initialValues={{
-              layout: formLayout,
-            }}
             // onValuesChange={onFormLayoutChange}
             className="createPostForm"
             onFinish={handleFormSubmit}
@@ -165,7 +128,7 @@ export default function CreatePost() {
               <Input placeholder="input placeholder" name="project_name" />
             </Form.Item>
             <Form.Item
-              label="formDescription"
+              label="Description"
               onChange={handleInputChange}
               value={userFormData.description}
               rules={[
@@ -177,7 +140,7 @@ export default function CreatePost() {
             >
               <TextArea
                 rows={4}
-                placeholder="input placeholder"
+                placeholder="Describe your project"
                 name="description"
               />
             </Form.Item>
@@ -243,10 +206,15 @@ export default function CreatePost() {
             >
               <Input placeholder="Zapopan, Jalisco, Mexico" name="location" />
             </Form.Item>
-            {/* <Form.Item label="Donation Amount Being Asked">
-              <Input placeholder="3000" />
-            </Form.Item> */}
-            <Form.Item {...buttonItemLayout}>
+            <Form.Item
+              label="Donation Amount Desired"
+              onChange={handleInputChange}
+              value={userFormData.donation_desired}
+              name="formDonationDesired"
+            >
+              <Input placeholder="3000" name="donation_desired" />
+            </Form.Item>
+            <Form.Item>
               <Button type="primary" htmlType="submit">
                 Submit
               </Button>

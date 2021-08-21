@@ -6,13 +6,14 @@ const resolvers = {
   Query: {
     allPosts: async () => {
       // console.log("getting all posts");
-      const foundPosts = await Post.find({}).populate('user');
+      const foundPosts = await Post.find({});
       // console.log(foundPosts);
       return foundPosts;
     },
     singlePost: async (parent, { postId }) => {
-      console.log("tryng to find single post");
+      // console.log("tryng to find single post");
       const foundPost = await Post.findById(postId);
+
       console.log(foundPost);
       return foundPost;
     },
@@ -51,8 +52,8 @@ const resolvers = {
     },
     addPost: async (parent, { postData }, context) => {
       // Check if user exists, retrieve user info
+      // console.log("postData", postData);
       if (context.user) {
-        console.log("postData", postData);
         const foundUser = await User.findOne({ _id: context.user._id });
         const foundUserFormatted = {
         userId: foundUser._id,
@@ -61,34 +62,19 @@ const resolvers = {
         username: foundUser.username,
         email: foundUser.email,
         };
-        console.log("foundUser", foundUser);
+        console.log("foundUserFormatted", foundUserFormatted);
+        console.log("postData", postData);
         const newPost = await Post.create({
           ...postData,
           user: foundUserFormatted,
           new : true
         });
-        console.log("newPost", newPost);
-        
-        // const updatePost = await Post.findOneAndUpdate(
-        //   {_id: "612072a40f31767d0820cc3b"},
-        //   { $push: {user: foundUserFormatted}}
-        // );
-        // console.log("foundUser", foundUser);
-        // console.log("updatePost", updatePost);
-
-        console.log("finished");
+        // console.log("newPost", newPost);
+        console.log("Created a new post!");
         return newPost;
-
-        // return ("finished");
       }
-      console.log("context.user", context.user);
+      // console.log("context.user", context.user);
       throw new AuthenticationError("There was an error creating the post");
-
-      const newPost = await Post.create({
-        ...postData,
-      });
-
-      // return newPost;
     },
     removePost: async (parent, { postId }, context) => {
       // Check if user is logged in
@@ -99,6 +85,17 @@ const resolvers = {
       console.log("context.user", context.user);
       throw new AuthenticationError("There was an error creating the post");
     },
+    addDonation: async (parent, {postId, donation}) => {
+      console.log("postId", postId);
+      console.log("donation", donation);
+      const post = await Post.findOneAndUpdate(
+        { _id: postId },
+        { $push: { donations: donation } },
+        { new: true }   
+      );
+      console.log("post", post);
+      return post;
+    }
   },
 };
 

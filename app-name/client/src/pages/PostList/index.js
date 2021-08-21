@@ -11,50 +11,12 @@ function PostList() {
   const { loading, error, data } = useQuery(QUERY_ALL_POSTS);
   const postsData = data?.allPosts || {};
 
-  // const cardsData = [
-  //   {
-  //     projectName: "Mexican Sea Turtle Foundation",
-  //     image: bgImage,
-  //     date: "05/14/2021",
-  //     projectId: 1,
-  //     key: 1,
-  //   },
-  //   {
-  //     projectName: "'My first Macbook",
-  //     image: bgImage,
-  //     date: "01/31/2021",
-  //     projectId: 2,
-  //     key: 2,
-  //   },
-  //   {
-  //     projectName: "Summer Scholarship in foreign country",
-  //     image: bgImage,
-  //     date: "08/14/2021",
-  //     projectId: 3,
-  //     key: 3,
-  //   },
-  //   {
-  //     projectName: "Breakfast Club Funding",
-  //     image: bgImage,
-  //     date: "09/01/2021",
-  //     projectId: 4,
-  //     key: 4,
-  //   },
-  //   {
-  //     projectName: "Travel to Mahahual",
-  //     image: bgImage,
-  //     date: "08/08/2021",
-  //     projectId: 5,
-  //     key: 5,
-  //   },
-  // ];
-
   // if we are still waiting the answer from the query, display the loading message
   if (loading) {
     return <h2>LOADING...</h2>;
   }
   if (error) return `Error! ${error.message}`;
-  console.log(postsData);
+  // console.log(postsData);
 
   return (
     <div className="postListContainer">

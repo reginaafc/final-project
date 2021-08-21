@@ -1,49 +1,52 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const userSubSchema = require ('./UserSubSchema');
+const userSubSchema = require("./userSubSchema");
+const donationSubSchema = require("./Donation");
 
 const postSchema = new Schema({
   project_name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   description: {
-    type: String
+    type: String,
   },
   publication_date: {
     type: Date,
     default: Date.now,
   },
   location: {
-    type: String
+    type: String,
   },
   image: {
-    type: String
+    type: String,
   },
   fundraise_destination: {
-    type: String
+    type: String,
   },
   fundraise_account: {
     type: String,
   },
   results: {
-    type: String
+    type: String,
   },
   expiration_date: {
     type: Date,
   },
-  user: 
-    {
-      type: userSubSchema,
-      default: {}
-    },
+  donation_desired: {
+    type: Number,
+  },
+  user: {
+    type: userSubSchema,
+    default: {},
+  },
   donations: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Donation'
-    }
-  ]
+      type: donationSubSchema,
+      default: {},
+    },
+  ],
 });
-const Post = model('Post', postSchema);
+const Post = model("Post", postSchema);
 module.exports = Post;
