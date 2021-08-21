@@ -143,22 +143,20 @@ const SignupForm = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
+              <Form.Group>
               <button
+                disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+                htmlType="submit"
                 className="py-2 font-bold text-white transition duration-200 bg-red-900 rounded shadow-lg hover:bg-red-800 w-60 hover:shadow-xl"
-                disabled={
-                  !(
-                    userFormData.username &&
-                    userFormData.email &&
-                    userFormData.password
-                  )
-                }
-                type="submit"
-                variant="success"
+                // variant="success"
               >
                 Submit
               </button>
+              </Form.Group>
+              
               {/* {error && <div>Sign up failed</div>} */}
             </Form>
+            
           </div>
         </div>
       </section>
