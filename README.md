@@ -52,16 +52,16 @@ After this the user will be able to:
 ## Screenshot
 
 1. Homepage
-![Site](./app-name/client/src/assests/Homepage.png)
+![Homepage](https://github.com/reginaafc/final-project/blob/main/client/src/assets/Homepage.png)
 
 2. Login
-![Site](./app-name/client/src/assests/Login.png)
+![Login](https://github.com/reginaafc/final-project/blob/main/client/src/assets/Login.png)
 
-2. Post Webpage
-![Site](./app-name/client/src/assests/Post_webpage.png)
+3. Post Webpage
+![Post_Webpage](https://github.com/reginaafc/final-project/blob/main/client/src/assets/Post_webpage.png)
 
 4. Add a post
-![Site](./app-name/client/src/assests/Add_post.png)
+![Add_Post](https://github.com/reginaafc/final-project/blob/main/client/src/assets/Add_post.png)
 
 
 
