@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-
+const dateFormat = require('../utils/dateFormat');
 const userSubSchema = require("./userSubSchema");
 const donationSubSchema = require("./Donation");
 
@@ -15,6 +15,7 @@ const postSchema = new Schema({
   publication_date: {
     type: Date,
     default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
   },
   location: {
     type: String,

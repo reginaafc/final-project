@@ -21,7 +21,7 @@
   padding: 0 60px;
   display: flex;
   flex-wrap: wrap;
-  /* background-color: floralwhite; */
+   /* background-color: floralwhite; */
 }
 
 .createPostFormTitle {
@@ -34,7 +34,7 @@
 .createPostFormContainer {
   width: 50%;
   background-color: lightpink;
-  padding: 20px;
+  padding: 15px;
 }
 
 .createPostForm{
@@ -46,7 +46,7 @@
   width: 50%;
   height: auto;
   background-color: lightsalmon;
-  padding: 20px;
+  padding: 15px;
 }
 
 .createPostUploadTitle {

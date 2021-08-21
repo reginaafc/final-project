@@ -8,6 +8,9 @@ import { Form, Input, Button, Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 
+import Auth from '../../utils/auth';
+import { Redirect, useParams } from 'react-router-dom';
+
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 
@@ -92,6 +95,10 @@ export default function CreatePost() {
       console.log("Dropped files", e.dataTransfer.files);
     },
   };
+
+  if (Auth.loggedIn() === false) {
+    return <Redirect to="/projects" />;
+  }
 
   return (
     <div className="createPostContainer">
@@ -239,8 +246,11 @@ export default function CreatePost() {
               </p>
             </Dragger>
           </div>
+
         </div>
       </div>
     </div>
+
+
   );
 }

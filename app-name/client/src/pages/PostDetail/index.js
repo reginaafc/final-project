@@ -80,7 +80,7 @@ export default function Details() {
           description={postData.description}
           results={postData.results}
           ulProps={ulProps}
-          // email={postDetails.userEmail}
+        // email={postDetails.userEmail}
         />
         <div className="collageSeparator"></div>
         <PostDetailProgressBar percentage={percentage} />
@@ -88,3 +88,4 @@ export default function Details() {
     </div>
   );
 }
+

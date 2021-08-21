@@ -5,8 +5,12 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import PostDetail from "../pages/PostDetail";
-import PostList from "../pages/PostList";
 import CreatePost from "../pages/CreatePost";
+import userProjects from "../pages/userPostList";
+import Payment from "../pages/Payment";
+import PostList from "../pages/PostList";
+import Greetings from "../pages/Greetings";
+
 import SignUp from "../pages/SignUp";
 
 import {
@@ -45,6 +49,7 @@ function Routes() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
+
         <Navbar></Navbar>
         <Switch>
           <Route exact path="/" component={Dashboard} />
@@ -53,6 +58,9 @@ function Routes() {
           <Route path="/login" component={Login} />
           <Route path="/postdetail/:id" component={PostDetail} />
           <Route path="/signUp" component={SignUp} />
+          <Route path="/userprojects" component={userProjects} />
+          <Route path="/payment" component={Payment} />
+          <Route path="/greetings" component={Greetings} />
         </Switch>
         <Footer></Footer>
       </BrowserRouter>
