@@ -54,7 +54,7 @@ export default function Details() {
     return <h2>LOADING...</h2>;
   }
   // const percentage = 20;
-  const totalDonation = postData.donations.reduce((a,{amount}) => a+amount,0);
+  const totalDonation = postData.donations?.reduce((a,{amount}) => a+amount,0);
   const percentage = (totalDonation ? Math.round((totalDonation / postData.donation_desired) * 100): 0);
   // console.log("percentage:", percentage);
   // console.log("donation_desired:", postData.donation_desired);
