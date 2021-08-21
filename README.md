@@ -11,6 +11,7 @@ You can either make possible others' dreams or everyone can make your dreams com
 * [Installation](#installation)
 * [Usage](#usage)
 * [Technologies](#technologies)
+* [Screenshots](#screenshot)
 * [Credits](#credits)
 * [License](#license)
 
@@ -19,13 +20,13 @@ You can either make possible others' dreams or everyone can make your dreams com
 
 For usage and be able to display functionality:
 
-1. Clone the repository: 
+1. Clone the repository: https://github.com/reginaafc/final-project.git
 2. Open the terminal and "npm install" followed by "npm start".
 3. Open localhost on terminal 3001
 
 OR
 
-1. Open heroku link: 
+1. Open heroku link: https://thawing-peak-40630.herokuapp.com/
 
 ## Usage
 
@@ -52,16 +53,16 @@ After this the user will be able to:
 ## Screenshot
 
 1. Homepage
-![Site](./app-name/client/src/assests/Homepage.png)
+![Homepage](https://github.com/reginaafc/final-project/blob/main/client/src/assets/Homepage.png)
 
 2. Login
-![Site](./app-name/client/src/assests/Login.png)
+![Login](https://github.com/reginaafc/final-project/blob/main/client/src/assets/Login.png)
 
-2. Post Webpage
-![Site](./app-name/client/src/assests/Post_webpage.png)
+3. Post Webpage
+![Post_Webpage](https://github.com/reginaafc/final-project/blob/main/client/src/assets/Post_webpage.png)
 
 4. Add a post
-![Site](./app-name/client/src/assests/Add_post.png)
+![Add_Post](https://github.com/reginaafc/final-project/blob/main/client/src/assets/Add_post.png)
 
 
 
