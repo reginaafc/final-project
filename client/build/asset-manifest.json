@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ad630a3d.chunk.css",
+    "main.js": "/static/js/main.4fd581b6.chunk.js",
+    "main.js.map": "/static/js/main.4fd581b6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7545a8a1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7545a8a1.js.map",
+    "static/css/2.5f5f9133.chunk.css": "/static/css/2.5f5f9133.chunk.css",
+    "static/js/2.98f9e651.chunk.js": "/static/js/2.98f9e651.chunk.js",
+    "static/js/2.98f9e651.chunk.js.map": "/static/js/2.98f9e651.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.5f5f9133.chunk.css.map": "/static/css/2.5f5f9133.chunk.css.map",
+    "static/css/main.ad630a3d.chunk.css.map": "/static/css/main.ad630a3d.chunk.css.map",
+    "static/js/2.98f9e651.chunk.js.LICENSE.txt": "/static/js/2.98f9e651.chunk.js.LICENSE.txt",
+    "static/media/1.679939f1.jpg": "/static/media/1.679939f1.jpg",
+    "static/media/alms.c7c26f47.jpeg": "/static/media/alms.c7c26f47.jpeg",
+    "static/media/postDetail.css": "/static/media/collage.52db13e2.jpg",
+    "static/media/createPostBG2.ca5e1046.png": "/static/media/createPostBG2.ca5e1046.png",
+    "static/media/hands.71654b85.jpeg": "/static/media/hands.71654b85.jpeg",
+    "static/media/homeless.59a861fa.jpeg": "/static/media/homeless.59a861fa.jpeg",
+    "static/media/logo512.7db27754.png": "/static/media/logo512.7db27754.png",
+    "static/media/postListImg.d87d71e9.jpg": "/static/media/postListImg.d87d71e9.jpg",
+    "static/media/quote.73929164.jpg": "/static/media/quote.73929164.jpg",
+    "static/media/titleBG.76b41b3e.jpg": "/static/media/titleBG.76b41b3e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7545a8a1.js",
+    "static/css/2.5f5f9133.chunk.css",
+    "static/js/2.98f9e651.chunk.js",
+    "static/css/main.ad630a3d.chunk.css",
+    "static/js/main.4fd581b6.chunk.js"
+  ]
+}
