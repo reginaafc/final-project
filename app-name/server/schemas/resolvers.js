@@ -5,16 +5,16 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     allPosts: async () => {
-        // console.log("getting all posts");
-        const foundPosts = await Post.find({});
-        // console.log(foundPosts);
-        return foundPosts;
+      // console.log("getting all posts");
+      const foundPosts = await Post.find({});
+      // console.log(foundPosts);
+      return foundPosts;
     },
-    singlePost: async (parent,{postId}) => {
-        console.log("tryng to find single post");
-        const foundPost =  await Post.findById(postId);
-        console.log(foundPost);
-        return foundPost;
+    singlePost: async (parent, { postId }) => {
+      console.log("tryng to find single post");
+      const foundPost = await Post.findById(postId);
+      console.log(foundPost);
+      return foundPost;
     },
   },
 

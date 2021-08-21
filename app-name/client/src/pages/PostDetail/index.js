@@ -18,7 +18,7 @@ export default function Details() {
   const { loading, data } = useQuery(QUERY_SINGLE_POST, {
     variables: { postId: id },
   });
-  const postData = data.singlePost || {};
+  const postData = data?.singlePost || {};
 
   const ulProps = [
     {
@@ -78,7 +78,7 @@ export default function Details() {
           description={postData.description}
           results={postData.results}
           ulProps={ulProps}
-          // email={postDetails.userEmail}
+        // email={postDetails.userEmail}
         />
         <div className="collageSeparator"></div>
         <PostDetailProgressBar percentage={percentage} />
