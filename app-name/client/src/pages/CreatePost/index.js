@@ -8,6 +8,9 @@ import { Form, Input, Button, Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 
+import Auth from '../../utils/auth';
+import { Redirect, useParams } from 'react-router-dom';
+
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 
@@ -85,24 +88,24 @@ export default function CreatePost() {
   const formItemLayout =
     formLayout === "horizontal"
       ? {
-          labelCol: {
-            span: 4,
-          },
-          wrapperCol: {
-            span: 14,
-          },
-        }
+        labelCol: {
+          span: 4,
+        },
+        wrapperCol: {
+          span: 14,
+        },
+      }
       : null;
 
   // Setting up  the form button layout
   const buttonItemLayout =
     formLayout === "horizontal"
       ? {
-          wrapperCol: {
-            span: 14,
-            offset: 4,
-          },
-        }
+        wrapperCol: {
+          span: 14,
+          offset: 4,
+        },
+      }
       : null;
 
   // Configuring dragbox
@@ -125,6 +128,10 @@ export default function CreatePost() {
       console.log("Dropped files", e.dataTransfer.files);
     },
   };
+
+  if (Auth.loggedIn() === false) {
+    return <Redirect to="/projects" />;
+  }
 
   return (
     <div className="createPostContainer">
@@ -271,8 +278,11 @@ export default function CreatePost() {
               </p>
             </Dragger>
           </div>
+
         </div>
       </div>
     </div>
+
+
   );
 }
