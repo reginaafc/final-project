@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
-const userSubSchema = require ('./UserSubSchema');
+const userSubSchema = require('./UserSubSchema');
 
 const postSchema = new Schema({
   project_name: {
@@ -14,6 +15,7 @@ const postSchema = new Schema({
   publication_date: {
     type: Date,
     default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
   },
   location: {
     type: String
@@ -33,11 +35,11 @@ const postSchema = new Schema({
   expiration_date: {
     type: Date,
   },
-  user: 
-    {
-      type: userSubSchema,
-      default: {}
-    },
+  user:
+  {
+    type: userSubSchema,
+    default: {}
+  },
   donations: [
     {
       type: Schema.Types.ObjectId,
