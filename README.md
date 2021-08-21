@@ -54,14 +54,14 @@ After this the user will be able to:
 1. Homepage
 ![Site](./app-name/client/src/assests/Homepage.png)
 
-2. Post Webpage
+2. Login
 ![Site](./app-name/client/src/assests/Login.png)
 
-3. Add a post
-![Site](/Develop/public/assets/03-AddYourExcercise.png)
+2. Post Webpage
+![Site](./app-name/client/src/assests/Post_webpage.png)
 
-4. Donation
-![Site](/Develop/public/assets/04-LastWorkout.png)
+4. Add a post
+![Site](./app-name/client/src/assests/Add_post.png)
 
 
 
