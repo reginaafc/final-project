@@ -9,6 +9,7 @@ import CreatePost from "../pages/CreatePost";
 import userProjects from "../pages/userPostList";
 import Payment from "../pages/Payment";
 import PostList from "../pages/PostList";
+import Greetings from "../pages/Greetings";
 
 import SignUp from "../pages/SignUp";
 
@@ -59,6 +60,7 @@ function Routes() {
           <Route path="/signUp" component={SignUp} />
           <Route path="/userprojects" component={userProjects} />
           <Route path="/payment" component={Payment} />
+          <Route path="/greetings" component={Greetings} />
         </Switch>
         <Footer></Footer>
       </BrowserRouter>
