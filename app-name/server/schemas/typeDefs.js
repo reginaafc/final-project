@@ -35,13 +35,10 @@ type Post {
 input PostInput{
   project_name: String
   description: String
-  publication_date: String
   location: String
-  image: String
   fundraise_destination: String
   fundraise_account: String
   results: String
-  expiration_date: String
 }
 
 input UserInput{
@@ -74,5 +71,5 @@ type Mutation {
     removePost(postId: ID!): Post
   }
 `
-
+// image: String
 module.exports = typeDefs;

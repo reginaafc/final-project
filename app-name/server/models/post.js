@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 
+const userSubSchema = require ('./UserSubSchema');
+
 const postSchema = new Schema({
   project_name: {
     type: String,
@@ -31,12 +33,11 @@ const postSchema = new Schema({
   expiration_date: {
     type: Date,
   },
-  user: [
+  user: 
     {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    }
-  ],
+      type: userSubSchema,
+      default: {}
+    },
   donations: [
     {
       type: Schema.Types.ObjectId,
