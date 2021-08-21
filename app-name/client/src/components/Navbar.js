@@ -19,7 +19,7 @@ function Navbar(props) {
 
       <h1 className="tituloHeader">Final-project</h1>
       <div>
-        <a href="/" className="buttonn">
+        <a href="/userprojects" className="buttonn">
           <HomeOutlined />
         </a>
         <a href="/projects" className="buttonn">

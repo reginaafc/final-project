@@ -48,7 +48,7 @@ function PostList() {
         className="postListTitle"
         style={{ backgroundImage: `url(${titleBg})` }}
       >
-        Meet our collaborators
+        My projects
       </div>
       <div className="postListCardContainer">
         {cardsData.map((cardData) => (
