@@ -17,18 +17,24 @@ function Navbar(props) {
         <img className="img" src={headerImg} alt="header" />
       </Link>
 
-      <h1 className="tituloHeader">Final-project</h1>
+      <Link to="/">
+        <h1 className="tituloHeader">Hand in hands</h1>
+      </Link>
       <div>
-        <a href="/userprojects" className="buttonn">
-          <HomeOutlined />
-        </a>
+
         <a href="/projects" className="buttonn">
           <GiftOutlined />
         </a>
+
         {Auth.loggedIn() ? (
-          <a href="/" className="buttonn" onClick={Auth.logout}>
-            <LogoutOutlined />
-          </a>
+          <>
+            <a href="/userprojects" className="buttonn">
+              <HomeOutlined />
+            </a>
+            <a href="/" className="buttonn" onClick={Auth.logout}>
+              <LogoutOutlined />
+            </a>
+          </>
         ) : (
           <a href="/login" className="buttonn">
             <LoginOutlined />
