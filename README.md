@@ -11,6 +11,7 @@ You can either make possible others' dreams or everyone can make your dreams com
 * [Installation](#installation)
 * [Usage](#usage)
 * [Technologies](#technologies)
+* [Screenshots](#screenshot)
 * [Credits](#credits)
 * [License](#license)
 
